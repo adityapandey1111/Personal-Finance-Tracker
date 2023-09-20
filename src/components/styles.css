@@ -1,0 +1,113 @@
+.container {
+  width: 100%;
+  padding: 0rem 2rem;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.my-table {
+  color: white;
+  background: transparent;
+}
+.table-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.table-items {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.transaction {
+  color: white;
+  text-align: center;
+}
+.import-export{
+    display: flex;
+}
+
+.left{
+    border-radius: 4px 0 0 4px;
+}
+.right{
+    border-radius: 0 4px 4px 0;
+}
+.transaction{
+    font-weight: bold;
+    font-size: 28px;
+}
+@media(max-width: 992px){
+    .transaction{
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .table-content{
+        display: block;
+    }
+    .input-radio{
+        display: flex;
+        justify-content: center;
+    }
+    .import-export{
+        display: flex;
+    }
+    .btn {
+        width: 30%;
+        font-size: 10px;
+    }
+    .btn-coll{
+        margin-bottom: 10px;
+    }
+    .ant-table{
+        margin-top: 20px !important;
+    }
+    .ant-table-cell{
+        padding: 8px 3px !important;
+        font-size: 10px !important;
+        text-align: center !important;
+        border: 1px solid rgb(197, 196, 196) !important;
+    }  
+    .ant-table-thead th{
+        font-size: 12px !important;
+        font-weight: bold !important;
+    }
+    .sorting{
+        font-size: 10px !important;
+    }
+    .card{
+        min-width: 200px !important;
+    }
+    .staticistics{
+        min-width: 180px !important;
+    }
+    .staticisticsBar{
+        min-width: 350px !important;
+    }
+    .ant-row{
+        margin-right: 0 !important;
+    }
+}
+.ant-table{
+    margin-top: 10px !important;
+}
+.ant-table-cell{
+    text-align: center !important;
+    border: 1px solid rgb(197, 196, 196) !important;
+}  
+.ant-table-thead th{
+    font-weight: bold !important; 
+}
+.google img{
+    width: 20% !important;
+    padding: 0 !important;
+}
+.buttonClass{
+    display: flex;
+    justify-content: center;
+}
