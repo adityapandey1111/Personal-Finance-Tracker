@@ -175,7 +175,10 @@ const Dashboard = () => {
   };
 
   function reset() {
-    console.log("resetting");
+    setTransactions([]);
+    setIncome(0);
+    setExpenses(0);
+    setCurrentBalance(0);
   }
   const cardStyle = {
     boxShadow: "0px 0px 22px 5px rgba(147, 147, 147, 0.75)",
