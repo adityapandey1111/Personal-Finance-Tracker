@@ -10,11 +10,12 @@ import Cards from "./Cards";
 import NoTransactions from "./NoTransactions";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase";
-import { addDoc, collection, getDocs, query } from "firebase/firestore";
+import { addDoc, collection, getDocs, query,deleteDoc } from "firebase/firestore";
 import Loader from "./Loader";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { unparse } from "papaparse";
+
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -44,12 +45,10 @@ const Dashboard = () => {
           balanceData.push({ month: monthYear, balance: transaction.amount });
         }
       } else {
-        if (balanceData.some((data) => data.month === monthYear)) 
-        {
+        if (balanceData.some((data) => data.month === monthYear)) {
           balanceData.find((data) => data.month === monthYear).balance -= transaction.amount;
-        } 
-        else 
-        {
+        }
+        else {
           balanceData.push({ month: monthYear, balance: -transaction.amount });
         }
 
@@ -174,12 +173,30 @@ const Dashboard = () => {
     colorField: "category",
   };
 
-  function reset() {
-    setTransactions([]);
-    setIncome(0);
-    setExpenses(0);
-    setCurrentBalance(0);
+  async function reset() {
+    try {
+      // First, delete all transactions in the database
+      const transactionCollectionRef = collection(db, `users/${user.uid}/transactions`);
+      const querySnapshot = await getDocs(transactionCollectionRef);
+      
+      // Iterate through the documents and delete them one by one
+      querySnapshot.forEach(async (doc) => {
+        await deleteDoc(doc.ref);
+      });
+  
+      // After deleting the data in the database, reset the state variables
+      setTransactions([]);
+      setIncome(0);
+      setExpenses(0);
+      setCurrentBalance(0);
+  
+      toast.success("Data reset successfully");
+    } catch (error) {
+      console.error("Error resetting data: ", error);
+      toast.error("Couldn't reset data");
+    }
   }
+  
   const cardStyle = {
     boxShadow: "0px 0px 22px 5px rgba(147, 147, 147, 0.75)",
     margin: "2rem",
