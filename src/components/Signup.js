@@ -133,7 +133,7 @@ const SignUpSignIn = () => {
               <div className="buttonClass">
                 <button disabled={loading} className="btnn" onClick={signInWithEmail} >
                   {/* <span className="google"><img src={gmail}></img></span> */}
-                  {loadingEmail ? "Loading..." : "Signin with gmail"}
+                  {loadingEmail ? <span><i class="fa fa-spinner fa-spin"></i> Loading...</span> : "Signin with gmail"}
                 </button>
               </div>
             </form>
@@ -142,7 +142,7 @@ const SignUpSignIn = () => {
             <div className="buttonClass">
               <button disabled={loading} className="btnn btnn-blue" onClick={signInWithGoogle} >
               
-                {loadingGoogle ? "Loading..." :  <span className="google"><img src={google}></img></span>}
+                {loadingGoogle ? <span><i class="fa fa-spinner fa-spin"></i> Loading...</span> :  <span className="google"><img src={google}></img></span>}
               </button>
             </div>
 
@@ -184,7 +184,7 @@ const SignUpSignIn = () => {
               <div className="buttonClass">
                 <button type="submit" className="btnn">
                 {/* <span className="google"><img src={gmail}></img></span> */}
-                  {loadingEmail ? "Loading..." : "Signup with gmail"}
+                  {loadingEmail ? <span><i class="fa fa-spinner fa-spin"></i> Loading...</span> : "Signup with gmail"}
                 </button>
               </div>
             </form>
@@ -192,7 +192,7 @@ const SignUpSignIn = () => {
             <div className="buttonClass">
               <button disabled={loading} className="btnn btnn-blue" onClick={signInWithGoogle}>
                 
-                {loadingGoogle ? "Loading..." : <span className="google"><img src={google}></img></span>}
+                {loadingGoogle ? <span><i class="fa fa-spinner fa-spin"></i> Loading...</span> : <span className="google"><img src={google}></img></span>}
               </button>
             </div>
             <p onClick={() => setFlag(!flag)} style={{
